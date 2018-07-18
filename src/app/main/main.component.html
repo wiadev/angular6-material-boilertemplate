@@ -1,0 +1,11 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" #sidenav>
+    <p>Welcome</p>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <app-navbar [sidenav]="sidenav"></app-navbar>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

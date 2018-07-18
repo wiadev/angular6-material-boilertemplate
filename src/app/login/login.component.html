@@ -1,0 +1,52 @@
+<div class="wrapper" fxLayout fxLayoutAlign="center center">
+    <mat-card textCenter>
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+          <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+          <mat-form-field>
+              <input matInput
+                      placeholder="Email"
+                      formControlName="email"
+                      type=text>
+              <mat-checkbox matSuffix
+                            color=primary
+                            formControlName="isRememberEnabled"
+                            labelPosition=before>Remember</mat-checkbox>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput
+                      placeholder="Password"
+                      formControlName="password"
+                      [type]="showPassword ? 'text': 'password'">
+              <span *ngIf=!showPassword
+                    matSuffix
+                    mat-icon-button
+                    (click)="showPassword = true">
+                  <mat-icon>visibility</mat-icon>
+              </span>
+              <span *ngIf=showPassword
+                    matSuffix
+                    mat-icon-button
+                    (click)="showPassword = false">
+                  <mat-icon>visibility_off</mat-icon>
+              </span>
+          </mat-form-field>
+          <div class="actions"
+                fxLayout=row>
+              <button *ngIf="false"
+                      mat-button
+                      type=button
+                      routerLink="/password-recovery"
+                      fxFlex=initial>
+                  Password Reset
+              </button>
+              <div fxFlex></div>
+              <button mat-raised-button
+                      fxFlex=initial
+                      [disabled]=isSignining
+                      type="submit"
+                      color=primary>Sign in</button>
+          </div>
+          <br/>
+      </form>
+  </mat-card>
+</div>
